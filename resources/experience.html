@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Isaac Monahan</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/resources/styles/style.css">
+</head>
+<body>
+
+<header>
+    <a href="index.html">
+        <img src="images/logo.png" alt="logo" class="logo">
+    </a>
+
+    <nav>
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a class="nav-link active" href="education.html"> Education</a></li>
+            <li class="nav-item"><a class="nav-link active" href="experience.html"> Experience</a></li>
+            <li class="nav-item"><a class="nav-link active" href="gallery.html"> Gallery</a></li>
+            <li class="nav-item"><a class="nav-link active" href="resume.html"> Resume</a></li>
+            <li class="nav-item"><a class="nav-link active" href="weblinks.html"> Weblinks</a></li>
+        </ul>
+    </nav>
+</header>
+<br>
+
+<div class="content">
+    <div class="sidebar">
+        <br>
+
+        <h2>Contact me</h2>
+        <form id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/f/{{YOUR FORM ID HERE}}" method="post">
+            <fieldset id="fs-frm-inputs">
+                <div class="form-group">
+                    <label for="full-name">Full Name</label>
+                    <input type="text" class="form-control" name="name" id="full-name" placeholder="First and Last" required="">
+                </div>
+                <div class="form-group">
+                    <label for="email-address">Email Address</label>
+                    <input type="email" class="form-control" name="_replyto" id="email-address" placeholder="sample@email.com" required="">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" rows="5" name="message" id="message" placeholder="Your Message" required=""></textarea>
+                </div>
+                <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
+            </fieldset>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <hr>
+
+        <div id="apiDisplay"></div>
+
+        <script>
+            const div = document.getElementById('apiDisplay');
+            const url = 'https://api.adviceslip.com/advice';
+
+            const headers = new Headers({
+                'Accept': 'application/json'
+            });
+
+            fetch(url, {headers})
+                .then((response) => {
+                    return response.json();
+                })
+                .then((data) => {
+                    console.log(data)
+                    let p = document.createElement('p');
+                    p.innerHTML = `${data.slip.advice}`
+                    div.appendChild(p);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        </script>
+
+    </div>
+    <div class="displayContent">
+        <h1>Experience</h1>
+        <h3>Army Navy Country Club, Arlington VA —Restaurant and Pool Operation Staff</h3>
+        <p>
+            Summer 2022, Summer 2023
+            <br>
+            Key responsibilities include providing customer service and assistance to members when
+            needed (e.g., clearing tables, taking orders, and serving refreshments). Worked proactively
+            throughout the day making sure tables weren’t getting behind.
+        </p>
+        <br>
+        <h3>BAM Technologies, Arlington VA —Summer Intern</h3>
+        <p>
+            Summer 2021
+            <br>
+            Key responsibilities include assisting software engineers with server integration and
+            implementing AWS cloud computing.
+        </p>
+        <br>
+        <h3>US Soccer Federation, Arlington VA — Soccer Referee</h3>
+        <p>
+            2019 - 2021
+            <br>
+            Center and assistant referee for U12-U16 Travel Soccer. US Soccer Federation (USSF)
+            Certified - 2018-0000-0410-1128
+            Key responsibilities include ensuring a smooth and organized game. Enforced rules by making
+            quick and informed decisions. Maintain a controlled and fair game.
+        </p>
+        <br>
+        <h3>Boys Gotta Run, Arlington VA — Athletics Assistant</h3>
+        <p>
+            March 2022 - June 2022
+            <br>
+            Key responsibilities include leading elementary age students after school with an exercise
+            program in order to ensure readiness for a 5k run in six weeks. Led games, managed
+            exercises, and motivated kids to keep them moving in a fun and healthy way.
+        </p>
+        <br>
+
+    </div>
+</div>
+<footer>
+    <a href="https://www.linkedin.com/in/isaac-monahan-79b16a292/">LinkedIn</a>
+    <a href="https://github.com/moonisaac">GitHub</a>
+    <p>Isaac Monahan <br> 2618 S Ives St, Arlington, Va 22202 <br> (703) 919 8279 <br> isaac.monahan@gmail.com <br> </p>
+    <p>&copy; Copyright 2024</p>
+</footer>
+</body>
+</html>
